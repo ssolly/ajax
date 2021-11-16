@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Handles requests for the application home page.
@@ -47,5 +48,12 @@ public class HomeController {
 	public String ajax() {
 		System.out.println("ajax 실행");
 		return "ajax";
+	}
+	
+	static int cnt=0;		//보통 DB에 있는 값을 가져와서 사용
+	@GetMapping("ajax_result")
+	@ResponseBody			//ajax사용할 때 반드시 필요
+	public String ajaxResult() {
+		return ++cnt + "";	//숫자 + ""(문자) -> string
 	}
 }
