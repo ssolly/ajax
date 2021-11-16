@@ -52,7 +52,7 @@ public class HomeController {
 	
 	static int cnt=0;		//보통 DB에 있는 값을 가져와서 사용
 	@GetMapping("ajax_result")
-	@ResponseBody			//ajax사용할 때 반드시 필요
+	@ResponseBody			//ajax사용할 때 반드시 필요 -> 응답해주는 값
 	public String ajaxResult() {
 		return ++cnt + "";	//숫자 + ""(문자) -> string
 	}
