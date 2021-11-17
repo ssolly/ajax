@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -72,5 +73,25 @@ public class TestController {
 	public InfoDTO user1(@PathVariable String name) {	
 		//select * from member where id=id;
 		return DBMap.get(name);
+	}
+	
+	@PutMapping(value="modify", produces="application/json; charset=utf-8")
+	public InfoDTO modify(@RequestBody InfoDTO dto) {	//이름 동일할 시 dto로 받을 수 있음
+		//update member set age=? where name=?
+		System.out.println(dto.getName());
+		System.out.println(dto.getAge());
+		DBMap.replace(dto.getName(), dto);
+		return DBMap.get(dto.getName());
+	}
+	
+	@PostMapping(value="membership", produces="application/json; charset=utf-8")
+	public String membership(@RequestBody Map<String,Object> member) {
+		System.out.println("uId : " + member.get("uId"));
+		System.out.println("uName : " + member.get("uName"));
+		System.out.println("uAge : " + member.get("uAge"));
+		System.out.println("uAddr : " + member.get("uAddr"));
+		System.out.println("uPhone : " + member.get("uPhone"));
+		
+		return "{\"test\":true}";
 	}
 }
