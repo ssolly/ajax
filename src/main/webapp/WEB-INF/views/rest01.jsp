@@ -13,7 +13,7 @@
 			type : "get",
 			dataType : "json",
 			success : function(data) {
-				$("#label").text(data.execute)
+				$("#label").text(data.execute)	//class label이 있는 위치에 text(서버로부터 받아온 data)를 추가
 			}
 		})
 	}

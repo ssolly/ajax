@@ -89,8 +89,16 @@ public class HomeController {
 		return map;											
 	}
 	
+	
+	//day2
+	
 	@GetMapping("rest01")
 	public String rest01() {
 		return "rest01";
+	}
+	
+	@GetMapping("getuser")
+	public String getUser() {
+		return "getuser";
 	}
 }
