@@ -88,4 +88,9 @@ public class HomeController {
 		//dto.setName("해당하는 아이디는 사용 가능합니다");
 		return map;											
 	}
+	
+	@GetMapping("rest01")
+	public String rest01() {
+		return "rest01";
+	}
 }
